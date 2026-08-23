@@ -1,0 +1,77 @@
+services:
+  # ============================================================================
+  # PostgreSQL Service with pgvector Extension
+  # ============================================================================
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: agentic-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: agentic_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - agentic-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d agentic_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # ============================================================================
+  # Enterprise Agentic Research Platform API
+  # ============================================================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agentic-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APP_ENV: production
+      HOST: "0.0.0.0"
+      PORT: 8000
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres_password@postgres:5432/agentic_db
+      VECTOR_REPOSITORY_TYPE: pgvector
+      LLM_PROVIDER: mock
+      EMBEDDING_PROVIDER: mock
+      SECURITY_ENABLED: "false"
+      RATE_LIMIT_ENABLED: "true"
+      API_SECRET_KEY: agentic-ai-platform-super-secret-key-2026
+    ports:
+      - "8000:8000"
+    volumes:
+      - app_data:/app/.data
+    networks:
+      - agentic-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+# ==============================================================================
+# Persistent Volumes
+# ==============================================================================
+volumes:
+  postgres_data:
+    name: agentic_postgres_data
+  app_data:
+    name: agentic_app_data
+
+# ==============================================================================
+# Isolated Bridge Network
+# ==============================================================================
+networks:
+  agentic-network:
+    name: agentic_local_network
+    driver: bridge

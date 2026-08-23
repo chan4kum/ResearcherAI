@@ -1,0 +1,15 @@
+apiVersion: v2
+name: enterprise-agentic-platform
+description: Production Helm chart for Enterprise Agentic Research & Knowledge Platform
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - agentic-ai
+  - rag
+  - kubernetes
+  - llm
+  - pgvector
+maintainers:
+  - name: Platform Engineering Team
+    email: platform-eng@enterprise.internal

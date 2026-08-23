@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: agentic-platform
+  labels:
+    environment: local-dev
+    app.kubernetes.io/part-of: enterprise-agentic-platform

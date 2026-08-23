@@ -1,0 +1,15 @@
+Thank you for deploying {{ .Chart.Name }} (Version: {{ .Chart.Version }}, AppVersion: {{ .Chart.AppVersion }}).
+
+Your release is named: {{ .Release.Name }}
+Namespace: {{ .Release.Namespace }}
+
+1. Get the application status:
+   kubectl get pods -n {{ .Release.Namespace }} -l app.kubernetes.io/instance={{ .Release.Name }}
+
+2. Port-forward the Service to your local machine:
+   kubectl port-forward svc/{{ include "enterprise-agentic-platform.fullname" . }} 8000:{{ .Values.service.port }} -n {{ .Release.Namespace }}
+
+3. Test the health endpoints:
+   curl http://localhost:8000/health
+   curl http://localhost:8000/ready
+   curl http://localhost:8000/live

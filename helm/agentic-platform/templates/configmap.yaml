@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "enterprise-agentic-platform.fullname" . }}-config
+  labels:
+    {{- include "enterprise-agentic-platform.labels" . | nindent 4 }}
+data:
+  APP_ENV: {{ .Values.config.appEnv | quote }}
+  HOST: {{ .Values.config.host | quote }}
+  PORT: {{ .Values.config.port | quote }}
+  LOG_LEVEL: {{ .Values.config.logLevel | quote }}
+  LLM_PROVIDER: {{ .Values.config.llmProvider | quote }}
+  LLM_MODEL: {{ .Values.config.llmModel | quote }}
+  EMBEDDING_PROVIDER: {{ .Values.config.embeddingProvider | quote }}
+  EMBEDDING_MODEL: {{ .Values.config.embeddingModel | quote }}
+  VECTOR_REPOSITORY_TYPE: {{ .Values.config.vectorRepositoryType | quote }}
+  DEFAULT_RETRIEVAL_MODE: {{ .Values.config.defaultRetrievalMode | quote }}
+  RATE_LIMIT_ENABLED: {{ .Values.config.rateLimitEnabled | quote }}
+  RATE_LIMIT_PER_MINUTE: {{ .Values.config.rateLimitPerMinute | quote }}
+  SECURITY_ENABLED: {{ .Values.config.securityEnabled | quote }}

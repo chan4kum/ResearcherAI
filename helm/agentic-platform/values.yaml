@@ -1,0 +1,113 @@
+# Default values for enterprise-agentic-platform.
+
+replicaCount: 2
+
+image:
+  repository: enterprise-agentic-platform
+  pullPolicy: IfNotPresent
+  tag: "v3"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  runAsGroup: 10001
+  fsGroup: 10001
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: false
+
+# Operational non-sensitive configuration
+config:
+  appEnv: "production"
+  host: "0.0.0.0"
+  port: 8000
+  logLevel: "INFO"
+  llmProvider: "mock"
+  llmModel: "gpt-4o-mini"
+  embeddingProvider: "mock"
+  embeddingModel: "text-embedding-3-small"
+  vectorRepositoryType: "auto"
+  defaultRetrievalMode: "hybrid"
+  rateLimitEnabled: "true"
+  rateLimitPerMinute: "120"
+  securityEnabled: "true"
+
+# Sensitive secrets (API keys, connection strings)
+secrets:
+  apiSecretKey: "agentic-ai-platform-super-secret-key-2026"
+  openaiApiKey: "mock-openai-production-key-encrypted"
+  databaseUrl: "postgresql+asyncpg://postgres:postgres_password@agentic-postgres:5432/agentic_db"
+
+service:
+  type: ClusterIP
+  port: 8000
+  targetPort: 8000
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: agentic-platform.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+probes:
+  startup:
+    enabled: true
+    path: /live
+    initialDelaySeconds: 2
+    periodSeconds: 3
+    timeoutSeconds: 2
+    failureThreshold: 10
+  readiness:
+    enabled: true
+    path: /ready
+    initialDelaySeconds: 4
+    periodSeconds: 3
+    timeoutSeconds: 2
+    failureThreshold: 2
+    successThreshold: 1
+  liveness:
+    enabled: true
+    path: /live
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 2
+    failureThreshold: 3
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

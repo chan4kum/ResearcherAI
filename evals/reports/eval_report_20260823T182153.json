@@ -1,0 +1,1499 @@
+{
+  "timestamp": "2026-08-23T18:21:53.251892+00:00",
+  "total_cases": 18,
+  "passed": 18,
+  "failed": 0,
+  "skipped_dimensions": 49,
+  "overall_score": 1.0,
+  "per_dimension_scores": {
+    "answer_quality": 1.0,
+    "agent_success": 1.0,
+    "tool_selection": 1.0,
+    "retrieval_relevance": 1.0,
+    "citation_correctness": 1.0,
+    "groundedness": 1.0
+  },
+  "cases": [
+    {
+      "case_id": "AGENT-001",
+      "case_name": "open_question_no_tool",
+      "eval_type": "agent",
+      "task_or_question": "Explain the difference between supervised and unsupervised learning.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 3.94,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 53,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 3.77,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [
+              "calculator"
+            ],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-002",
+      "case_name": "calculator_tool_arithmetic",
+      "eval_type": "tool",
+      "task_or_question": "What is 25 multiplied by 48?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.74,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 18,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "tool_executing",
+              "tool_executed",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 2.6,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=['calculator'].",
+          "details": {
+            "tools_used": [
+              "calculator"
+            ],
+            "expected_tool": "calculator",
+            "must_not_use": [
+              "app_info"
+            ],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-003",
+      "case_name": "calculator_tool_compound_expression",
+      "eval_type": "tool",
+      "task_or_question": "Calculate (100 + 50) * 3 - 75. Show the calculation.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.4,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 18,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "tool_executing",
+              "tool_executed",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 2.29,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=['calculator'].",
+          "details": {
+            "tools_used": [
+              "calculator"
+            ],
+            "expected_tool": "calculator",
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-004",
+      "case_name": "app_info_tool_selection",
+      "eval_type": "tool",
+      "task_or_question": "What application am I using? What are its capabilities?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.31,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 42,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "tool_executing",
+              "tool_executed",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 2.21,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=['app_info'].",
+          "details": {
+            "tools_used": [
+              "app_info"
+            ],
+            "expected_tool": "app_info",
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-005",
+      "case_name": "multi_step_planning",
+      "eval_type": "agent",
+      "task_or_question": "Outline a 3-step process for deploying a Python FastAPI application to a Kubernetes cluster using Helm.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.87,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 61,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 1.76,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-006",
+      "case_name": "error_handling_empty_task",
+      "eval_type": "agent",
+      "task_or_question": "help",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.94,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 46,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 1.83,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-001",
+      "case_name": "retrieval_relevance_basic",
+      "eval_type": "rag",
+      "task_or_question": "What is the agentic platform designed to do?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.32,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 4,
+            "avg_similarity": 0.0138,
+            "strategy": "normal",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 4 citations are structurally valid.",
+          "details": {
+            "citations_count": 4,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.9608,
+            "disqualifiers_found": [],
+            "groundedness_level": "high"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 57,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-002",
+      "case_name": "retrieval_with_normal_strategy",
+      "eval_type": "rag",
+      "task_or_question": "Describe how vector embeddings are used in semantic search.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.15,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 1,
+            "avg_similarity": 0.0237,
+            "strategy": "normal",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 1 citations are structurally valid.",
+          "details": {
+            "citations_count": 1,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.9231,
+            "disqualifiers_found": [],
+            "groundedness_level": "high"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 29,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-003",
+      "case_name": "retrieval_with_hyde_strategy",
+      "eval_type": "rag",
+      "task_or_question": "How does retrieval augmented generation improve factual accuracy?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.21,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 4,
+            "avg_similarity": 0.0239,
+            "strategy": "hyde",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 4 citations are structurally valid.",
+          "details": {
+            "citations_count": 4,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.963,
+            "disqualifiers_found": [],
+            "groundedness_level": "high"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 60,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-004",
+      "case_name": "citation_structure_correctness",
+      "eval_type": "rag",
+      "task_or_question": "What machine learning techniques are commonly used in NLP?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.13,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 4,
+            "avg_similarity": 0.0335,
+            "strategy": "normal",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 4 citations are structurally valid.",
+          "details": {
+            "citations_count": 4,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.963,
+            "disqualifiers_found": [],
+            "groundedness_level": "medium"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 60,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-005",
+      "case_name": "groundedness_no_hallucination_signal",
+      "eval_type": "rag",
+      "task_or_question": "What are the main components of the Agentic Platform API?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.12,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 2,
+            "avg_similarity": 0.0266,
+            "strategy": "normal",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 2 citations are structurally valid.",
+          "details": {
+            "citations_count": 2,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.9474,
+            "disqualifiers_found": [],
+            "groundedness_level": "high"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 42,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-006",
+      "case_name": "answer_quality_concise_technical",
+      "eval_type": "rag",
+      "task_or_question": "Explain the role of a vector database in RAG systems.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.11,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All retrieval checks passed.",
+          "details": {
+            "citations_count": 2,
+            "avg_similarity": 0.0184,
+            "strategy": "normal",
+            "schema_errors": 0
+          }
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 2 citations are structurally valid.",
+          "details": {
+            "citations_count": 2,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer appears well-grounded in retrieved context.",
+          "details": {
+            "hallucination_signals_found": [],
+            "context_word_overlap": 0.9512,
+            "disqualifiers_found": [],
+            "groundedness_level": "high"
+          }
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 50,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-007",
+      "case_name": "empty_question_rejection",
+      "eval_type": "rag",
+      "task_or_question": "",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 0.33,
+      "error": "Question cannot be empty.",
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "No retrieval expectation defined for this case.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "All 0 citations are structurally valid.",
+          "details": {
+            "citations_count": 0,
+            "schema_issues": [],
+            "similarity_issues": [],
+            "missing_expected_sources": []
+          }
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 0,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": "Question cannot be empty."
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 agent lifecycle not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "RAG case \u2014 tool selection not applicable.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-007",
+      "case_name": "agent_completes_with_completed_status",
+      "eval_type": "agent",
+      "task_or_question": "List three benefits of containerizing applications with Docker.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.15,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 53,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 2.04,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "AGENT-008",
+      "case_name": "agent_trace_contains_planning_stage",
+      "eval_type": "agent",
+      "task_or_question": "What are the SOLID principles in software engineering?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.92,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 53,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 1.81,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "TOOL-001",
+      "case_name": "no_tool_for_conceptual_question",
+      "eval_type": "tool",
+      "task_or_question": "What are the trade-offs between REST and GraphQL APIs?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 1.85,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 54,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 1.73,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=[].",
+          "details": {
+            "tools_used": [],
+            "expected_tool": null,
+            "must_not_use": [
+              "calculator",
+              "app_info"
+            ],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "TOOL-002",
+      "case_name": "calculator_division_result",
+      "eval_type": "tool",
+      "task_or_question": "Compute 1024 divided by 8.",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.09,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 18,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "tool_executing",
+              "tool_executed",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 1.98,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=['calculator'].",
+          "details": {
+            "tools_used": [
+              "calculator"
+            ],
+            "expected_tool": "calculator",
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "TOOL-003",
+      "case_name": "calculator_power_expression",
+      "eval_type": "tool",
+      "task_or_question": "What is 2 to the power of 10?",
+      "passed": true,
+      "overall_score": 1.0,
+      "duration_ms": 2.14,
+      "error": null,
+      "dimensions": [
+        {
+          "dimension": "retrieval_relevance",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 retrieval relevance not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "citation_correctness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Not a RAG case \u2014 citation correctness not applicable.",
+          "details": {}
+        },
+        {
+          "dimension": "groundedness",
+          "verdict": "SKIP",
+          "score": 1.0,
+          "reason": "Groundedness level is LOW \u2014 not evaluated.",
+          "details": {}
+        },
+        {
+          "dimension": "answer_quality",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Answer meets all quality criteria.",
+          "details": {
+            "word_count": 18,
+            "keyword_hit": true,
+            "forbidden_found": [],
+            "error": null
+          }
+        },
+        {
+          "dimension": "agent_success",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Agent completed all 6 lifecycle checks.",
+          "details": {
+            "status": "completed",
+            "error": null,
+            "plan_steps": 3,
+            "trace": [
+              "initialized",
+              "planning",
+              "planned",
+              "tool_decision",
+              "tool_executing",
+              "tool_executed",
+              "executing",
+              "executed",
+              "completed"
+            ],
+            "duration_ms": 2.04,
+            "checks": {
+              "status=COMPLETED": true,
+              "no_error": true,
+              "plan_non_empty": true,
+              "trace_has_planning": true,
+              "answer_non_empty": true,
+              "duration_positive": true
+            }
+          }
+        },
+        {
+          "dimension": "tool_selection",
+          "verdict": "PASS",
+          "score": 1.0,
+          "reason": "Tool selection correct. tools_used=['calculator'].",
+          "details": {
+            "tools_used": [
+              "calculator"
+            ],
+            "expected_tool": "calculator",
+            "must_not_use": [],
+            "forbidden_used": []
+          }
+        }
+      ]
+    }
+  ]
+}
